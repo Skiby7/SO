@@ -1,0 +1,333 @@
+<!DOCTYPE html><html><head>
+      <title>Laboratorio di Sistemi Operativi</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/leonardo/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.16/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;background-color:#282828;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <p>\pagebreak<br>
+\tableofcontents<br>
+\pagebreak</p>
+<h1 class="mume-header" id="ripasso-di-c">Ripasso di C</h1>
+
+<h2 class="mume-header" id="gcc">gcc</h2>
+
+<p>Flag di compilazione gcc:</p>
+<ul>
+<li>
+<p>-o nominare output</p>
+</li>
+<li>
+<p>-c produce un file oggetto</p>
+</li>
+<li>
+<p>-Wall abilita i warning</p>
+</li>
+<li>
+<p>-pedantic conforme a ISO C89</p>
+</li>
+<li>
+<p>-Werror tutti i warning diventano error</p>
+</li>
+<li>
+<p>-g debug</p>
+</li>
+<li>
+<p>-ansi usa lo standard ANSI C(89/90)</p>
+</li>
+<li>
+<p>-I per specificare la cartella degli <code>#include</code></p>
+</li>
+<li>
+<p>-std=c99 ISO C99 che usiamo noi. Se una funzione di libreria non fa parte di questo standard, devo dichiarare il prototipo.</p>
+</li>
+</ul>
+<h2 class="mume-header" id="argomenti-main">Argomenti main</h2>
+
+<p>La funzione <code>main()</code> ammette argomenti come qualsiasi altra funzione. Le segnature tipiche sono:</p>
+<ul>
+<li>
+<p><code>int main(int argc, char *argv[])</code></p>
+</li>
+<li>
+<p><code>int main(void)</code></p>
+</li>
+</ul>
+<p>Le convenzioni sugli argomenti sono:</p>
+<ul>
+<li>argc &#xE8; il numero di argomenti della funzione main (sempre &gt;=1)</li>
+<li>argv &#xE8; un array di stringhe che ha come ultima entry NULL (cio&#xE8; argv[argc] == NULL) e come prima entry il nome del programma (cio&#xE8; argv[0]==&#xE2;&#x20AC;&#x9D;myprog&quot;)<br>
+Inoltre, se il main ritorna 0, sono felice, altrimenti significa che no &#xE8; terminato con successo.</li>
+</ul>
+<p>Gli elementi di argv devono essere convertiti e ci sono simpatiche funzioni come <code>atoi()</code>, <code>atol()</code> (per i long), <code>strtol</code> (consigliato, puoi specificare la base e se trova una cosa che non &#xE8; un numero, ritorna 0), <code>sscanf()</code> (come scanf, ma con una stringa e non su <code>stdin</code>)</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h&gt;</span></span>
+<span class="token comment">// Questi sono include file, non librerie!</span>
+</pre><p>Il comando <code>seq x y z</code> su bash crea una sequenza da x a z con passo y. <code>xargs</code> gli argomenti di un file:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">seq</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">5</span> <span class="token operator">|</span> <span class="token function">xargs</span> ./prog <span class="token comment"># | si chiama &quot;pipe&quot;</span>
+<span class="token comment"># Questo &#xE8; equivalente a scrivere:</span>
+./prog <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span>
+</pre><p>Se il secondo parametro di <code>strtol</code> &#xE8; diverso da <code>NULL</code>, ma &#xE8; un puntatore, salva all&apos;interno di questo l&apos;indirizzo di un array che contiene le entry non valide della conversione. Inoltre, la funzione salva nella variabile globale <code>errno</code> (<code>#include &lt;errno.h&gt;</code>) il codice di errore che pu&#xF2; significare over/underflow o che l&apos;elemento non &#xE8; un numero.</p>
+<h2 class="mume-header" id="struct-e-union">Struct e Union</h2>
+
+<p>Le strutture sono allienate a multipli della parola di memoria (4 byte per 32 bit, 8 byte per 64 bit).</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword">struct</span> <span class="token class-name">studente</span> <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> nome<span class="token punctuation">[</span><span class="token number">64</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 64 byte</span>
+    <span class="token keyword">char</span> cognome<span class="token punctuation">[</span><span class="token number">64</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 64 byte</span>
+    <span class="token keyword">struct</span> <span class="token class-name">altreinfo</span> <span class="token punctuation">{</span>
+        <span class="token keyword">char</span> <span class="token operator">*</span>via<span class="token punctuation">;</span> 
+        <span class="token keyword">int</span>  nc<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> info<span class="token punctuation">;</span> <span class="token comment">// 8 + 4 (+4) byte (padding per l&apos;allineamento)  </span>
+        <span class="token keyword">int</span> matricola<span class="token punctuation">;</span> <span class="token comment">// 4 (+4) byte</span>
+<span class="token punctuation">}</span>
+
+       <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+      <span class="token operator">|</span>    <span class="token number">64</span>    <span class="token operator">|</span>    <span class="token number">64</span>    <span class="token operator">|</span> <span class="token number">8</span><span class="token operator">+</span><span class="token number">4</span><span class="token punctuation">(</span><span class="token operator">+</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">|</span><span class="token number">4</span><span class="token punctuation">(</span><span class="token operator">+</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">|</span>
+       <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+</pre><h2 class="mume-header" id="bit-fields">Bit Fields</h2>
+
+<p>Ad ogni campo di tipo <code>[unsigned]int</code> di una struttura &#xE8; possibile specificare la sua ampiezza in bits, ma alcuni compilatori come gcc supportano anche <code>[unsigned]short</code> ed <code>[unsigned]long</code>. Sono usati per la gestione di maschere ed operazioni su bits. <strong>Attenzione</strong> all&apos;endianess della macchina, infatti del codice che utilizza bit-fields non &#xE8; portabile su differenti architetture.</p>
+<h2 class="mume-header" id="union">Union</h2>
+
+<p>Le union, a istanti diversi pu&#xF2; avere tipo diverso e viene fatto un cast automatico.</p>
+<h2 class="mume-header" id="allocazione">Allocazione</h2>
+
+<p>La <code>malloc()</code> non alloca in senso stretto la memoria, ma la riserva e la alloca alla prima richiesta di scrittura. La malloc ritorna <code>NULL</code> se non ho pi&#xF9; memoria. Questa scrive sullo heap.<br>
+La <code>calloc()</code> setta tutti i byte di un array a 0, infatti prende come argomenti la dimensione dell&apos;array e la dimensione in byte di ogni elemento.<br>
+Se faccio una <code>free()</code> su un puntatore non allocato sullo heap, scoppia tutto.<br>
+La <code>realloc()</code> prende un puntatore (se &#xE8; <code>NULL</code> fa la stessa cosa della malloc) e allarga o restrige l&apos;area di memoria che punta portandola alla dimensione specificata.</p>
+<h2 class="mume-header" id="buone-norme">Buone norme</h2>
+
+<p>Quando si usano funzioni di libreria per le stringhe, usa sempre la variante in cui si specifica la dimensione di destinazione in modo da non sovrascrivere aree di memoria non riservate a quello che stiamo facendo.</p>
+<h2 class="mume-header" id="funzioni-con-numero-di-argomenti-variabili">Funzioni con numero di argomenti variabili</h2>
+
+<p>Sono funzioni tipo printf, in cui il numero di argomenti che vengono passati alla funzione &#xE8; variabile (ma ne deve avere almeno 1) e per dichiararle si deve includere <code>#include &lt;stdarg.h&gt;</code>.<br>
+Per indicare un numero di argomenti variabile si utilizza <code>...</code> (ellipsis) nella definizione della funzione e l&apos;ellipsis deve essere l&apos;ultimo elemento.<br>
+Gli elementi fondamentali sono:</p>
+<ul>
+<li>
+<p>All&apos;interno della funzione bisogna definire una <code>va_list</code> che punta agli elementi aggiuntivi e non specificati della funzione (<code>va_list va;</code>)</p>
+</li>
+<li>
+<p>La macro <code>va_start</code> inizializza la variabile <code>va</code> per puntare al primo elemento della lista avendo specificato l&apos;ultimo valore noto (<code>va_start(va, arg);</code>)</p>
+</li>
+<li>
+<p>La macro <code>va_arg</code> restituisce il prossimo valore della lista castandolo al tipo specificato (<code>va_arg(va, int);</code>)</p>
+</li>
+<li>
+<p>La macro <code>va_end</code> va chiamata prima dell&apos;uscita della funzione per effettuare il cleanup (<code>va_end(va);</code>)</p>
+</li>
+</ul>
+<p>Esempio:</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdarg.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span> <span class="token comment">// somma di pi&#xF9; argomenti</span></span>
+
+<span class="token keyword">int</span> <span class="token function">vasum</span><span class="token punctuation">(</span><span class="token keyword">int</span> count<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    va_list ap<span class="token punctuation">;</span>
+    <span class="token function">va_start</span> <span class="token punctuation">(</span>ap<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// inizializzo la lista</span>
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        sum <span class="token operator">+=</span> <span class="token function">va_arg</span> <span class="token punctuation">(</span>ap<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// il prossimo</span>
+    <span class="token function">va_end</span> <span class="token punctuation">(</span>ap<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// ho finito di usare la lista</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%d\n&quot;</span><span class="token punctuation">,</span> <span class="token function">vasum</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%d\n&quot;</span><span class="token punctuation">,</span> <span class="token function">vasum</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="core-dump">Core dump</h2>
+
+<p>Il core l&apos;immagine della memoria nel momento del seg fault. Di default non viene fatto per motivi di sicurezza, ma &#xE8; possible forzare il programma a creare un dump dando da bash</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token builtin class-name">ulimit</span> -a <span class="token comment"># mostra i limiti di memoria e vediamo core file size = 0</span>
+<span class="token builtin class-name">ulimit</span> -c unlimited <span class="token comment"># sblocca il core dump </span>
+</pre><p>Se rieseguo il programma con gdb, gdb mi far&#xE0;&#xA0; vedere che succede. Per gdb, se do il comando <code>up</code> torno all&apos;ultima chiamata prima che il programma crashasse.</p>
+<h2 class="mume-header" id="puntatori-a-funzione">Puntatori a funzione</h2>
+
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword">int</span> <span class="token function">somma</span> <span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x<span class="token operator">+</span>y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* variabile di tipo funzione (int,int)-&gt;int */</span>
+<span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>fun<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> a<span class="token punctuation">;</span>
+fun <span class="token operator">=</span> somma<span class="token punctuation">;</span>
+a <span class="token operator">=</span> <span class="token function">fun</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>Si pu&#xF2; usare per le funzioni di ordine superiore e passare la funzione come argomento di un&apos;altra funzione (vedi il map di OCaml).</p>
+<p>Un modo comodo di operare &#xE8; definire</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">int</span> <span class="token function">F_t</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">piu_uno</span> <span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">map</span> <span class="token punctuation">(</span>F_t f<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+<span class="token function">map</span><span class="token punctuation">(</span>piu_uno<span class="token punctuation">,</span>a<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h2 class="mume-header" id="puntatore-generico">Puntatore generico</h2>
+
+<p><code>void*</code> pu&#xF2; contenere indirizzi di variabili di tipi diversi, non si pu&#xF2; dereferenizare ed &#xE8; prima necessario effettuare a un tipo noto. Si usa per gestire il polimorfismo.</p>
+<p>Il tipo della <code>malloc()</code> ad esempio &#xE8; <code>void * malloc (size_t size)</code> e quando scrivo</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span> a<span class="token punctuation">;</span>
+a <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">*</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>effetuo un cast implicito a <code>int*</code>.</p>
+<p>Il <code>qsort</code>, ad esempio pu&#xF2; ordinare qualsiasi cosa grazie a <code>void*</code>, infatti prende una base che caster&#xE0;&#xA0; quando verr&#xE0;&#xA0; eseguita e una funzione che comparer&#xE0;&#xA0; gli elementi, che a sua volta prender&#xE0;&#xA0; due argomenti <code>void*</code> da castare.</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword">void</span> <span class="token function">qsort</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> base<span class="token punctuation">,</span> <span class="token class-name">size_t</span> nmemb<span class="token punctuation">,</span> <span class="token class-name">size_t</span> size<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>compar<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">,</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>Proprio perch&#xE9; il <code>void*</code> no ha un tipo, quando nella <code>compare</code> faccio <code>int ai = *(int*)a</code>, dove <code>a</code> &#xE8; parametro della funzione, <code>(int*)</code> serve per castare il <code>void*</code> a <code>int*</code> e poi dereferenziare con <code>*</code>.</p>
+<h2 class="mume-header" id="funzioni-rienteranti">Funzioni rienteranti</h2>
+
+<p>Una funzione si dice rientrante (<em>reentrant function</em> in Inglese) se la sua esecuzione pu&#xF2; essere interrotta in qualsiasi punto ed essere rieseguita da dove era stata interrotta senza che questo produca effetti indesiderati (i.e. risultati scorretti o comportamento diverso rispetto all&#xE2;&#x20AC;&#x2122;output ottenuto se la funzione non viene mai interrotta). Se ho una variabile globale o statica all&apos;interno di una funzione, molto probablilmente questa non sar&#xE0;&#xA0; rientrante. Avere funzioni rientranti &#xE8; utile per programmi singlethreaded per fare il content switch (check async functions). Alcune funzioni di libreria non sono rientranti, bens&#xE0;&#xAC; esiste la versione rientrante segnata con <code>_r</code> (<code>strtok_r</code>, <code>rand_r</code>, ecc.).</p>
+<h2 class="mume-header" id="thread-safe">Thread Safe</h2>
+
+<p>Nei contesti multithreading, <code>Lock()</code> e <code>Unlock()</code> servono a bloccare l&apos;esecuzione affinch&#xE9; il codice compreso fra quelle due funzioni venga eseguito da un solo thread e non venga eseguito altro contemporaneamente. Una funzione &#xE8; thread safe se eseguendo tutti i thread insieme, si separano le variabili in modo che ogni thread dia il risultato giusto.</p>
+<h2 class="mume-header" id="rand">Rand</h2>
+
+<p><code>srand()</code> genera il seme (<em>seed</em>) che si usa per generare la sequenza (se gli passo il tempo in secondi, &#xE8; casuale, altrimenti se uso unintero ottengo sempre la stessa sequenza). Il processo quindi si appoggia sull&apos;uso di variabili globali e non &#xE8; reiterante. Se mi salvo lo stato iniziale e lo passo come puntatore a <code>rand_r</code>, non uso la variabile globale. I numeri sono pseudocasuali perch&#xE9; a partire dallo stesso <em>seed</em> si genera sempre la stessa sequenza.</p>
+<h1 class="mume-header" id="preprocessore">Preprocessore</h1>
+
+<p>Il preprocessore viene invocato prima della compilazione vera epropria ed esegue delle manipolazioni testuali sul file per sostituire i nomi delle variabili, eliminare i commenti e cose cos&#xE0;&#xAC;. Le cose contrassegnate con <code>#</code>, sono le direttive per il preprocessore. Si pu&#xF2; vedere il risultato del programma preprocessato con <code>gcc -E</code>.<br>
+I file di include possono essere di due tipi:</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;include_file&gt;</span> <span class="token comment">// include_file viene cercato nelle directory standard, tipicamente /usr/include o /usr/local/include</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;include_file&quot;</span> <span class="token comment">// include_file viene cercato prima nella dir locale e se non trovato nelle directory standard. Posso passare anche il PATH</span></span>
+</pre><p>Le macro associano un nome a un pezzo di testo, anche parametrico, che verr&#xE0;&#xA0; sostituito a tempo di compilazione:</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">nome</span> <span class="token comment">// Si pu&#xF2; non specificare il testo pre if def</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">nome</span> <span class="token expression">testo</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">nome</span><span class="token expression"><span class="token punctuation">(</span>parametri<span class="token punctuation">)</span> testo</span></span>
+</pre><p>Se ho definito una macro senza corpo posso scrivere:</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">nome</span></span>
+<span class="token comment">// Questa parte di codice viene compilata se nome &#xE8; definito</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">bool</span></span>
+<span class="token comment">// Posso usare anche un booleano</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span></span>
+<span class="token comment">// Si comporta in modo opposto a ifdef</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+</pre><p>Sono comodi se pi&#xF9; file includono gli stessi header, per includerli solo una volta:</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">_STDIO_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_STDIO_H</span></span>
+<span class="token comment">// Includo stdio.h la prima volta che il processore incontra _STDIO_H, dopodich&#xE9; ciccia.</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+</pre><p>Per gli altri due modi di <code>#define</code>, nel caso di <em>nome testo</em> e <em>nome testo(param)</em>, testo verr&#xE0;&#xA0; <u>sostituito</u> nel codice al posto di nome, generando errori se ad esempio si invoca una cosa tipo <code>PRODOTTO(a+1,b)</code>, perch&#xE9; no sono state specificate le parentesi (<code>a+1*b</code>, invece che <code>(a+1)*b</code>). Per creare macro su pi&#xF9; righe si usa <code>\</code>:</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">PRODOTTO</span><span class="token expression"><span class="token punctuation">(</span>X<span class="token punctuation">,</span>Y<span class="token punctuation">)</span></span><span class="token punctuation">\</span>
+                    <span class="token expression">X<span class="token punctuation">,</span>Y</span></span>
+</pre><p>Vediamo un esempio utile per il debug (da compilare in questo caso con <code>gcc -DDEBUG=1 nomefile.c</code>, in generale basta includere l&apos;opzione <code>-Dmacroval=val</code> per attivare un flag o definire qualcosa in fase di compilazione):</p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdarg.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token function">defined</span><span class="token punctuation">(</span>DEBUG<span class="token punctuation">)</span> </span><span class="token comment">// anche #ifdef</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">dbgprintf</span><span class="token expression"><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> </span><span class="token punctuation">\</span>
+  <span class="token expression"><span class="token function">dbgprintf_impl</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">,</span> <span class="token constant">__LINE__</span><span class="token punctuation">,</span> __VA_ARGS__<span class="token punctuation">)</span><span class="token punctuation">;</span></span></span>
+
+<span class="token comment">// funzione di utilit&#xE0;  per stampe di debugging</span>
+<span class="token keyword">int</span> <span class="token function">dbgprintf_impl</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>file<span class="token punctuation">,</span> <span class="token keyword">int</span> line<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> fmt<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  va_list argp<span class="token punctuation">;</span>
+  <span class="token function">va_start</span><span class="token punctuation">(</span>argp<span class="token punctuation">,</span> fmt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">&quot;&gt;&gt;&gt;&gt;&gt; [%s:%d]:\n&quot;</span><span class="token punctuation">,</span>file<span class="token punctuation">,</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">vfprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> fmt<span class="token punctuation">,</span> argp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span> <span class="token string">&quot;&lt;&lt;&lt;&lt;&lt;\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">va_end</span><span class="token punctuation">(</span>argp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">dbgprintf</span><span class="token expression"><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+
+
+<span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">dbgprintf</span><span class="token punctuation">(</span><span class="token string">&quot;ciao mondo\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">dbgprintf</span><span class="token punctuation">(</span><span class="token string">&quot;questa e&apos; un&apos;altra stampa in un altro punto %s %s %d\n&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;ciao1&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;ciao2&quot;</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>Esistono macro predefinite e macro con argomenti variabili. Cerca stringification.<br>
+Posso poi definire durante la compilazione, fare <code>#undef</code> e guarda la fine delle slide.</p>
+<blockquote>
+<p>Guarda stringhe suffisse e strlen di stringhe suffisse</p>
+</blockquote>
+<h1 class="mume-header" id="compiling-and-linking">Compiling and linking</h1>
+
+<p>La compilazione del sorgente produce un file eseguibile (ELF per linux -&gt; <em>executable and linking format</em>) dipendentemente dall&apos;OS in cui viene compilato. Il file ELF pu&#xF2; essere aperto con realdef o objdump ed &#xE8; composto da:</p>
+<ul>
+<li>
+<p>Magic Number: identificatore che segnala che il file &#xE8; un eseguibile</p>
+</li>
+<li>
+<p>Tabella dei simboli esterni, prima istruzione da eseguire, tabella di rilocazione, ecc.</p>
+</li>
+<li>
+<p>Ampiezza BSS: area di memoria occupata dalle variabili globali NON inizializzate a 0</p>
+</li>
+<li>
+<p>I-Data segment: glob var inizializzate</p>
+</li>
+<li>
+<p>Text segment: codice compilato</p>
+</li>
+</ul>
+<p>Compilando con <code>-c</code> si ottiene un file oggetto, mentre con <code>-E</code> il compilatore si stoppa dopo che il preprocessore ha fatto le sue cose.</p>
+<h1 class="mume-header" id="static-e-extern">Static e Extern</h1>
+
+<p>Definiscono le regole di visibilit&#xE0; delle variabili e delle funzioni quando il programma &#xE8; diviso su pi&#xF9; file e stabiliscono dove (in quale parte dello spazio di indirizzamento) vengono allocate le varie variabili.</p>
+<p>La classe di memorizzazione <code>static</code> &#xE8; utilizzata quando il valore della variabile deve essere mantenuto da una invocazione all&#x2019;altra del blocco e  significa che la variabile x mantiene il proprio valore da una attivazione del blocco alla successiva (non viene deallocata e viene salvata nell&apos;area dati), ma &#xE8; visibile solo all&apos;interno del blocco stesso e alle funzioni chiamate in quel blocco.</p>
+<p><strong>Dichiarare x vs Definire x</strong>:</p>
+<ul>
+<li>
+<p>La definizione di <code>x</code> alloca memoria</p>
+</li>
+<li>
+<p>La definizione di <code>x</code> deve avvenire una sola volta</p>
+</li>
+<li>
+<p>Quando dichiaro <code>x</code> non alloco memoria</p>
+</li>
+<li>
+<p>Posso dichiarare pi&#xF9; volte (anche se non ha senso nello stesso modulo)</p>
+</li>
+<li>
+<p>La definizione di <code>x</code> deve essere da qualche parte altrimenti c&#x2019;&#xE8; un errore</p>
+</li>
+</ul>
+<p>La classe di memorizzazione <code>extern</code>, significa che la variabile <code>x</code> &#xE8; dichiarata in questo o in altri file (non definisce la variabile), il nome <code>x</code> finisce nella tabella dei simboli come simbolo esterno, il compilatore segnala la situazione nel file oggetto ed il linker <em>cerca x altrove</em> e se il linker non trova la definizione di <code>x</code> genera un errore.</p>
+<p>Le variabili globali possono essere riferiti con <code>extern</code> e sono visibili ovunque, mentre le variabili globali e non definite con <code>static</code> sono visibili solo nei blocchi e sottoblocchi in cui sono state definite, questo perch&#xE9; non vanno a finire nelle tabelle dei simboli.</p>
+<p>Le funzioni sono definite <code>extern</code> di default (posso includere ad esempio <code>printf</code> dichiarandola come prototipo senza includere <code>stdio.h</code>) e se voglio limitarne la portata le posso flaggare con <code>static</code>.</p>
+<h1 class="mume-header" id="librerie">Librerie</h1>
+
+<p>Le librerie sono file oggetti, archivi, usati per diminuire i tempi di compilazioni, visto che i file che non modifico non devo ricompilarli, per ridurre la dimensione del programma, visto che le carico una volta in memoria (sia fisica che storage) e sono apposto</p>
+<blockquote>
+<p>Guarda le slide per creare le librerire</p>
+</blockquote>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
