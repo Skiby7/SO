@@ -298,7 +298,7 @@ Posso poi definire durante la compilazione, fare `#undef` e guarda la fine delle
 Il makefile serve a esprimere le dipendenze fra file (`.h`, `.c` e `.o`), dove i file oggetto sono i target, mentre gli altri fanno parte delle dependency list, infatti il file `.o` viene ricompilato solo se una dipendenza è cambiata.
 Attento all'indentazione.
 
-```bash
+```makefile
 exe: f.o r.o
 	gcc f.o r.o -o exe
 f.o: f.c t.h r.h
@@ -307,4 +307,51 @@ r.o: r.c r.h
 	gcc -Wall -pedantic -c r.c
 ```
 
-Make crea un albero delle dipendenze
+Make crea un albero delle dipendenze ordinato in base a come si presentano le regole, quindi il loro ordine è importante per il corretto funzionamento. In particolare, la prima regola è la radice dell'albero e ogni nodo nella dependency list viene appeso come figlio. È possibile considerare un sottoalbero passando come argomento il nodo che ci interessa. Quando vengono eseguiti i comandi, viene controllato per ogni modo l'ultima data di modifica del file durante l'ultima esecuzione e quella attuale.
+Se eseguo `make -n` ho in output i comandi che vengono eseguiti e in che ordine, ma senza eseguiri davvero. Il nome del target è il nome del file che viene creato.
+
+Si possono anche creare variabili per rendere il make più leggibile e più comodo da modificare:
+
+```makefile
+CC = gcc
+CFLAGS = -Wall -pedantic
+# CC e CFLAGS sono variabili predefinite per le opzioni di compilazione e per il compilatore
+objects = r.o f.o
+exe: $(objects)
+	$(CC) $(objects) -o exe
+f.o: f.c t.h r.h
+	$(CC) $(CFLAGS) -c f.c
+r.o: r.c r.h
+		$(CC) $(CFLAGS) -c r.c
+```
+
+Usando `CC` e `CFLAGS` ho il vantaggio di poter scrivere regole implicite che make conosce e che quindi posso omettere:
+
+```makefile
+XXX.o: XXX.c t.h r.h
+	gcc -Wall -pedantic -c XXX.c
+# Equivale a
+XXX.o: XXX.c t.h r.h
+	$(CC) $(CFLAGS) -c XXX.c
+
+# Che per make è uguale a
+XXX.o: XXX.c t.h r.h
+```
+
+Altre variabili predefinite sono:
+
+* `$@` è il nome del target
+
+* `$^` è la dependency list
+
+* `$<` il primo nome della dependency list
+
+Vi sono infine i *phony target*, che non hanno dipendenze, ma servono per eseguire dei comandi:
+
+```makefile
+.PHONY : clean # Per specificare che non è un target
+clean:
+	-rm $(objects) *~ core
+```
+Rimuove i file oggetto che non servono quando ho compilato, i file temporanei `~` e i core dump se ce ne sono. `-` serve per continuare anche se l'eliminazione di qualcosa non va a buon fine
+Per usare questo comando devo usare `make NOMECOMANDO` (qui `make clean`). Posso anche fare degli script bash per eseguire test o altro.
